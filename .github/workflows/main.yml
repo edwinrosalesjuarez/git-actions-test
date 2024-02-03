@@ -48,4 +48,4 @@ jobs:
     needs: setup
     steps:
       - name: Get Stage From set-debug-stage Setup Job
-        run: echo "The build stage from Setup is: ${{ needs.setup.outputs.build-stage }}"
+        run: echo "The build stage from Setup is ${{ needs.setup.outputs.build-stage }}"
