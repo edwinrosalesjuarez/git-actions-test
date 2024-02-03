@@ -1,0 +1,39 @@
+name: Variables Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        required: true
+        type: string
+      body:
+        required: true
+        type: string
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+
+    permissions:
+      issues: write
+    steps:
+      - name: Create an Issue using REST API
+        run: |
+          curl -- request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --data '{
+            "title": "Failure: ${{ inputs.title }}",
+            "body": "Details: ${{ inputs.body }}"
+          }' \
+          --fail
+
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Debug
+        id: set-debug-stage
+        run: echo "BUILD_STAGE=debug" >> $GITHUB_OUTPUT
+
+      - name: Get Stage
+        run: echo "The build stage is ${{ steps.set-debug-stage.outputs.BUILD_STAGE }}"
