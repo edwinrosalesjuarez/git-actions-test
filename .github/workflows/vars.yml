@@ -10,9 +10,17 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
+    outputs:
+      stage: ${{ steps.stage.outputs.STAGE_BUILD }}
     steps:
       - name: Setup Stage
         id: stage
         run: echo "STAGE_BUILD=${{ inputs.stage }}" >> $GITHUB_OUTPUT
       - name: Get Stage FROM stage step
         run: echo "The stage is ${{ steps.stage.outputs.STAGE_BUILD }}"
+  
+  report:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      run: echo "The previous stage was ${{ needs.setup.outputs.stage }}"
