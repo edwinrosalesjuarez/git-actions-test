@@ -28,7 +28,7 @@ jobs:
             "body": "Details: ${{ inputs.body }}"
           }' \
           --fail
-owner
+
   setup:
     runs-on: ubuntu-latest
     steps:
