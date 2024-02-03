@@ -10,7 +10,6 @@ on:
 jobs:
   setup:
     runs-on: ubuntu-latest
-    id: setup-stage
     steps:
       - name: Setup Stage
         id: stage
