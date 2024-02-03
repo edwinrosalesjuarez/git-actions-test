@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Create an Issue using REST API
         run: |
-          curl -- request POST \
+          curl --request POST \
           --url https://api.github.com/repos/${{ github.repository }}/issues \
           --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
           --header 'cntent-type: application/json' \
