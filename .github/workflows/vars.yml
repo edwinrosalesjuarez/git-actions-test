@@ -1,0 +1,19 @@
+name: Test 2 Inputs
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        type: string
+        required: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    id: setup-stage
+    steps:
+      - name: Setup Stage
+        id: stage
+        run: echo "STAGE_BUILD=debug" >> $GITHUB_OUTPUT
+      - name: Get Stage FROM stage step
+        run: echo "The stage is ${{ steps.stage.STAGE_BUILD }}"
