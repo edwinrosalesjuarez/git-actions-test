@@ -13,3 +13,5 @@ jobs:
         include:
           - pet:  Bird
             color: Blue
+    steps:
+      - run: echo "The ${{ matrix.pet }} is ${{ matrix.color }}"
