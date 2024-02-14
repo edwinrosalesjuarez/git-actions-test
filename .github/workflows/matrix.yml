@@ -1,0 +1,15 @@
+name: Matrix Tests
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pet:  [Cat, Dog]
+        color: [White, Black]
+        include:
+          - pet:  Bird
+            color: Blue
