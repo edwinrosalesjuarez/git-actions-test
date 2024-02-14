@@ -4,6 +4,4 @@ on: workflow_dispatch
 
 jobs:
   reusable:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: ./.github/workflows/matrix.yml@main
+    uses: ./.github/workflows/matrix.yml@main
