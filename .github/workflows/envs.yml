@@ -10,6 +10,7 @@ jobs:
         environment: [Development, Production]
     environment: ${{ matrix.environment }}
     steps:
+      - uses: actions/checkout@v3
       - run: |
           echo ${{ matrix.environment }}
           echo ${{ secrets.API_KEY }}
