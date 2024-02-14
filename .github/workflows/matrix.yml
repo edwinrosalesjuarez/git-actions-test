@@ -2,6 +2,7 @@ name: Matrix Tests
 
 on: 
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   deploy:
