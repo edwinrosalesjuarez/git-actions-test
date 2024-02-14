@@ -10,6 +10,6 @@ jobs:
         environment: [development, production]
     environment: ${{ matrix.environment }}
     steps:
-      run:
+      run: |
         echo ${{ matrix.environment }}
         echo ${{ secrets.API_KEY }}
