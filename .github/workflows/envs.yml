@@ -1,0 +1,15 @@
+name: Creating Environments Test
+
+on: workflow_dispatch
+
+jobs: 
+  deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        environment: [development, production]
+    environment: ${{ matrix.environment }}
+    steps:
+      run:
+        echo ${{ matrix.environment }}
+        echo ${{ secrets.API_KEY }}
