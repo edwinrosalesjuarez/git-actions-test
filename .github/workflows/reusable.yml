@@ -4,4 +4,4 @@ on: workflow_dispatch
 
 jobs:
   reusable:
-    uses: ./.github/workflows/matrix.yml@main
+    uses: ./.github/workflows/matrix.yml
