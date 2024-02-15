@@ -14,4 +14,3 @@ jobs:
       - run: |
           echo ${{ matrix.environment }}
           echo ${{ secrets.API_KEY }}
-      - uses: ./.github/workflows/matrix.yml@main
